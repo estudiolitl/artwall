@@ -5,14 +5,16 @@ import Image from '../Image/Image';
 import useCanvas from '../../hooks/useCanvas';
 
 const CANVAS_SIZE = 20000;
-const MIN_ZOOM = 0.1;  // Zoom mínimo (más lejos)
-const MAX_ZOOM = 2;    // Zoom máximo (más cerca)
+const MIN_ZOOM = 0.1;
+const MAX_ZOOM = 2;
+const ZOOM_SPEED = 0.005; // Ajuste más suave para el zoom
 
 const Canvas = () => {
   const { images } = useCanvas();
   const [position, setPosition] = useState({ x: -10000, y: -10000 });
   const [zoom, setZoom] = useState(1);
   const [wrappedPositions, setWrappedPositions] = useState([]);
+  const [lastDistance, setLastDistance] = useState(null);
 
   useEffect(() => {
     const wrapPositions = () => {
@@ -36,9 +38,10 @@ const Canvas = () => {
   }, [position]);
 
   const bind = useGesture({
-    onDrag: ({ delta: [dx, dy] }) => {
+    onDrag: ({ delta: [dx, dy], event }) => {
+      event.preventDefault();
       setPosition(current => {
-        const newX = current.x + dx / zoom;  // Ajustar movimiento según zoom
+        const newX = current.x + dx / zoom;
         const newY = current.y + dy / zoom;
         
         return {
@@ -47,14 +50,20 @@ const Canvas = () => {
         };
       });
     },
-    onPinch: ({ offset: [d], origin: [ox, oy], event }) => {
+    onPinch: ({ event, offset: [d], movement: [md], memo }) => {
       event.preventDefault();
-      
-      setZoom(Math.min(Math.max(d, MIN_ZOOM), MAX_ZOOM));
+
+      if (!memo) {
+        memo = zoom;
+      }
+
+      const newZoom = Math.min(Math.max(memo + md * ZOOM_SPEED, MIN_ZOOM), MAX_ZOOM);
+      setZoom(newZoom);
+
+      return memo;
     },
     onWheel: ({ event }) => {
       event.preventDefault();
-      
       const newZoom = zoom * (1 - event.deltaY * 0.001);
       setZoom(Math.min(Math.max(newZoom, MIN_ZOOM), MAX_ZOOM));
     }
@@ -65,7 +74,8 @@ const Canvas = () => {
     },
     pinch: {
       filterTaps: true,
-      rubberband: true
+      rubberband: true,
+      threshold: 0
     },
     wheel: {
       filterTaps: true
@@ -110,7 +120,7 @@ const Canvas = () => {
       </S.Controls>
       
       <S.Coordinates>
-        x: {Math.round(-position.x)}, y: {Math.round(-position.y)}, zoom: {zoom.toFixed(2)}
+        {Math.round(-position.x)}, {Math.round(-position.y)} ({zoom.toFixed(1)}x)
       </S.Coordinates>
     </S.Viewport>
   );

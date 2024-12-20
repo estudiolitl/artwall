@@ -1,0 +1,104 @@
+{
+  "images": [
+    {
+      "id": "1",
+      "url": "/images/abstract1.jpg",
+      "width": 450,
+      "height": 350,
+      "title": "Composición Abstracta #1",
+      "tags": ["abstracto", "arte", "colores"],
+      "date": "2024-03-15",
+      "author": "Artista 1"
+    },
+    {
+      "id": "2",
+      "url": "/images/abstract2.jpg",
+      "width": 450,
+      "height": 350,
+      "title": "Composición Abstracta #2",
+      "tags": ["abstracto", "arte", "diseño"],
+      "date": "2024-03-14",
+      "author": "Artista 2"
+    },
+    {
+      "id": "3",
+      "url": "/images/architecture1.jpg",
+      "width": 600,
+      "height": 400,
+      "title": "Arquitectura Moderna",
+      "tags": ["arquitectura", "ciudad", "diseño"],
+      "date": "2024-03-13",
+      "author": "Artista 3"
+    },
+    {
+      "id": "4",
+      "url": "/images/artwork1.jpg",
+      "width": 500,
+      "height": 400,
+      "title": "Obra Artística",
+      "tags": ["arte", "creatividad", "diseño"],
+      "date": "2024-03-12",
+      "author": "Artista 4"
+    },
+    {
+      "id": "5",
+      "url": "/images/landscape1.jpg",
+      "width": 800,
+      "height": 533,
+      "title": "Paisaje Natural",
+      "tags": ["paisaje", "naturaleza", "exterior"],
+      "date": "2024-03-11",
+      "author": "Artista 5"
+    },
+    {
+      "id": "6",
+      "url": "/images/minimal1.jpg",
+      "width": 400,
+      "height": 400,
+      "title": "Minimalismo",
+      "tags": ["minimalista", "diseño", "simple"],
+      "date": "2024-03-10",
+      "author": "Artista 6"
+    },
+    {
+      "id": "7",
+      "url": "/images/nature1.jpg",
+      "width": 600,
+      "height": 400,
+      "title": "Naturaleza #1",
+      "tags": ["naturaleza", "paisaje", "exterior"],
+      "date": "2024-03-09",
+      "author": "Artista 7"
+    },
+    {
+      "id": "8",
+      "url": "/images/nature2.jpg",
+      "width": 600,
+      "height": 400,
+      "title": "Naturaleza #2",
+      "tags": ["naturaleza", "paisaje", "exterior"],
+      "date": "2024-03-08",
+      "author": "Artista 8"
+    },
+    {
+      "id": "9",
+      "url": "/images/portrait1.jpg",
+      "width": 400,
+      "height": 600,
+      "title": "Retrato Artístico",
+      "tags": ["retrato", "arte", "personas"],
+      "date": "2024-03-07",
+      "author": "Artista 9"
+    },
+    {
+      "id": "10",
+      "url": "/images/street1.jpg",
+      "width": 600,
+      "height": 400,
+      "title": "Escena Urbana",
+      "tags": ["urbano", "ciudad", "calle"],
+      "date": "2024-03-06",
+      "author": "Artista 10"
+    }
+  ]
+} 
